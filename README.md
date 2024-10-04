@@ -1,9 +1,8 @@
 
 Breve descrição do grupo
 
-* Turno: [L]XX
-* Grupo: YY
+* Turno: [L]06
+* Grupo: 07
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - Rodrigo Pinto Pesqueira Gaspar Pombo up202105374
+    - Pedro Jorge das Neves Pinto Vieira up202206230
