@@ -1,7 +1,6 @@
 ### Wordpress CVE
 
-Primeiro nós inspecionamos o site para tentar ver os plugins que usava e encontrámos esta página que nos diz que eles oferecem um serviço de wordpress hosting e em que especificam a versão do wordpress, os plugins e as versões de plugins que usam:  
-Tamb![][image1]
+Primeiro nós inspecionamos o site para tentar ver os plugins que usava e encontrámos esta página que nos diz que eles oferecem um serviço de wordpress hosting e em que especificam a versão do wordpress, os plugins e as versões de plugins que usam![][image1]
 
 Também encontrámos na secção de reviews deste serviço que havia um cliente insatisfeito por ter sido hackeado e que refere que o a razão teria sido por o serviço de hosting não estar com os plugins atualizados e a resposta do admin a dizer que não é verdade e que diz que são seguras porque na equipa dele há pessoas que estão a monitorizar isso.  
 ![][image2]
