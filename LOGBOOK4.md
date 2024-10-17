@@ -96,7 +96,7 @@ Desta forma, concluímos que as variáveis de ambiente são, sim, passadas para 
 
 ### Task 5:
 
-Nesta task, vamos verificar se as variáveis de ambiente são herdadas pelo processo do prorgrama SET-UID, a partir do processo do utilizador.
+Nesta task, vamos verificar se as variáveis de ambiente são herdadas pelo processo do programa SET-UID, a partir do processo do utilizador.
 
 #### Step 1:
 
@@ -146,7 +146,7 @@ Para fazer o programa chamar o “ls” que nós criamos e não o default, alter
 
 ![image8](images_LOGBOOK4.md/image8.png)
 
-Compilamos o setUID.c: ![][image24]  
+Compilamos o setUID.c:
 ![image4](images_LOGBOOK4.md/image4.png)
 
 ![image9](images_LOGBOOK4.md/image9.png)
