@@ -93,10 +93,15 @@ Nesta task, vamos verificar se as variáveis de ambiente são herdadas pelo proc
 #### Step 3: Usamos o comando “export” para definir 3 novas variáveis de ambiente:
 
 ![image6](images_LOGBOOK4.md/image6.png)
+
 Ao executar o programa,  
+
 ![image2](images_LOGBOOK4.md/image2.png)
+
 (...)  
+
 ![image29](images_LOGBOOK4.md/image29.png)
+
 (...)
 
 Verificamos que apenas a variável LD\_LIBRARY\_PATH não foi herdada, algo que não esperávamos, já que prevíamos que todas as variáveis fossem herdadas.
