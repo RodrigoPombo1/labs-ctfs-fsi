@@ -22,7 +22,9 @@ E o comando “unset” para a apagar:
 
 Nesta task, vamos analisar se as variáveis de ambiente de um processo-pai são herdadas pelo seu respetivo processo-filho.
 
-#### Step 1: Começamos por compilar e executar o programa myprintenv.c, salvando o output num ficheiro “file.txt”.
+#### Step 1:
+
+Começamos por compilar e executar o programa myprintenv.c, salvando o output num ficheiro “file.txt”.
 
 ![image26](images_LOGBOOK4.md/image26.png)
 
@@ -30,7 +32,9 @@ O programa gerou, em formato de texto, as variáveis de ambiente disponíveis:
 
 ![image5](images_LOGBOOK4.md/image5.png)
 
-#### Step 2: De seguida, colocamos um comentário na função printenv() do processo-filho e tiramos o comentário já colocado na função printenv() do processo-pai, a fim de averiguar se o processo-filho herdava as mesmas variáveis de ambiente do processo-pai:
+#### Step 2:
+
+De seguida, colocamos um comentário na função printenv() do processo-filho e tiramos o comentário já colocado na função printenv() do processo-pai, a fim de averiguar se o processo-filho herdava as mesmas variáveis de ambiente do processo-pai:
 
 ![image14](images_LOGBOOK4.md/image14.png)
 
@@ -42,7 +46,9 @@ Ao abrir o ficheiro “file2.txt”, deparámo-nos com um output aparentemente i
 
 ![image3](images_LOGBOOK4.md/image3.png)
 
-#### Step 3: De seguida, de forma a ter a certeza de que o output era mesmo igual, usamos o comando diff para comparar os dois ficheiros txt onde os outputs estavam armazenados:
+#### Step 3:
+
+De seguida, de forma a ter a certeza de que o output era mesmo igual, usamos o comando diff para comparar os dois ficheiros txt onde os outputs estavam armazenados:
 
 ![image7](images_LOGBOOK4.md/image7.png)
 
@@ -52,17 +58,23 @@ Desta forma, como não há diferença entre os dois ficheiros, chegamos à concl
 
 Nesta task, vamos analisar a forma como a função execve() afeta as variáveis de ambiente de um processo.
 
-#### Step 1: Começamos por compilar e executar o programa myenv.c, que imprime as variáveis de ambiente do seu processo:
+#### Step 1:
+
+Começamos por compilar e executar o programa myenv.c, que imprime as variáveis de ambiente do seu processo:
 
 ![image31](images_LOGBOOK4.md/image31.png)
 
 O output é vazio, pelo que podemos constatar que não existe nenhuma variável de ambiente associada a este processo.
 
-#### Step 2: De seguida, mudamos o valor do 3º argumento da função execve(), de NULL para a variável externa “environ”:
+#### Step 2:
+
+De seguida, mudamos o valor do 3º argumento da função execve(), de NULL para a variável externa “environ”:
 
 ![image25](images_LOGBOOK4.md/image25.png)
 
-#### Step 3: Ao executar novamente o programa com a alteração anterior:
+#### Step 3:
+
+Ao executar novamente o programa com a alteração anterior:
 
 ![image21](images_LOGBOOK4.md/image21.png)
 
@@ -86,19 +98,25 @@ Desta forma, concluímos que as variáveis de ambiente são, sim, passadas para 
 
 Nesta task, vamos verificar se as variáveis de ambiente são herdadas pelo processo do prorgrama SET-UID, a partir do processo do utilizador.
 
-#### Step 1: Começamos por guardar o código num ficheiro “env.c”:
+#### Step 1:
+
+Começamos por guardar o código num ficheiro “env.c”:
 
 ![image30](images_LOGBOOK4.md/image30.png)
 
-#### Step 2: De seguida, compilamos o programa, colocámo-lo na propriedade do root e ativamos o SET-UID para o mesmo, de forma a que ele seja executado por qualquer utilizador com as permissões do seu proprietário:
+#### Step 2:
+
+De seguida, compilamos o programa, colocámo-lo na propriedade do root e ativamos o SET-UID para o mesmo, de forma a que ele seja executado por qualquer utilizador com as permissões do seu proprietário:
 
 ![image1](images_LOGBOOK4.md/image1.png)
 
-#### Step 3: Usamos o comando “export” para definir 3 novas variáveis de ambiente:
+#### Step 3:
+
+Usamos o comando “export” para definir 3 novas variáveis de ambiente:
 
 ![image6](images_LOGBOOK4.md/image6.png)
 
-Ao executar o programa,  
+Ao executar o programa,
 
 ![image2](images_LOGBOOK4.md/image2.png)
 
