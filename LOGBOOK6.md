@@ -4,25 +4,25 @@
 
 Em primeiro lugar, desativamos a randomização de endereços:
 
-![][image1]
+![image11](images_LOGBOOK6.md/image11.png)
 
 O nosso programa-alvo vai ser o programa format.c, que tem uma vulnerabilidade de format string.
 
 Vamos compilá-lo em 32 e 64 bits, usando a Makefile (comando make)
 
-![][image2]
+![image1](images_LOGBOOK6.md/image1.png)
 
 De seguida, copiamos o binário para a pasta fmt-containers, para ser usado pelos containers em Docker:
 
-![][image3]
+![image10](images_LOGBOOK6.md/image10.png)
 
 Vamos usar o Docker para construir um servidor local que vai ser alvo do nosso ataque. Começamos por construir a imagem Docker:
 
-![][image4]
+![image4](images_LOGBOOK6.md/image4.png)
 
 Por fim, executamos os containers a partir da imagem construída, criando o servidor:
 
-![][image5]
+![image21](images_LOGBOOK6.md/image21.png)
 
 ## Questão 1
 
@@ -36,17 +36,17 @@ O nosso objetivo será crashar o programa que é executado em background no serv
 
 Começamos por enviar uma mensagem benigna, para fins de teste, apenas imprimindo “hello”:  
 
-![][image6]  
+![image2](images_LOGBOOK6.md/image2.png)
 
-![][image7]  
+![image16](images_LOGBOOK6.md/image16.png)
 
 Note-se que, para obter o output da imagem acima, tivemos que abortar o comando dado, já que, como o Netcat (nc) não recebeu um sinal EOF (end of file) para encerrar a entrada, ele estava à espera de receber mais dados.
 
 De modo a crashar o programa, apenas precisamos de enviar o especificador de formato “%s”, que, como é impresso sozinho, sem nenhum argumento correspondente, vai tentar imprimir uma string armazenada num endereço aleatório. Como esse endereço não possui uma string armazenada nele, o programa crasha.  
 
-![][image8]  
+![image17](images_LOGBOOK6.md/image17.png)
 
-![][image9]  
+![image15](images_LOGBOOK6.md/image15.png)  
 
 Podemos concluir que o programa crashou, pois não aparece impresso neste output “Returned properly”.
 
@@ -58,23 +58,23 @@ Para facilitar a construção da format string, usamos o ficheiro build\_string.
 
 Em primeiro lugar, colocamos no início do buffer o nosso input. Para isso, usamos o número hexadecimal 0x50554546 que, em little-endian, representa a string “FEUP”:  
 
-![][image10]
+![image26](images_LOGBOOK6.md/image26.png)
 
 De seguida, concatenamos uma string cheia de “%.8x” (de forma a imprimir os valores presentes na stack em formato hexadecimal com, no mínimo, 8 dígitos), colocamos à direita de “number” no buffer e escrevemos o array “content” no badfile:  
 
-![][image11]
+![image19](images_LOGBOOK6.md/image19.png)
 
 Executamos o programa para o badfile ser escrito:  
 
-![][image12]
+![image3](images_LOGBOOK6.md/image3.png)
 
 Por fim, mandamos o conteúdo do badfile como input para o servidor:  
 
-![][image13]
+![image20](images_LOGBOOK6.md/image20.png)
 
 Este foi o output do servidor:  
 
-![][image14]  
+![image22](images_LOGBOOK6.md/image22.png)
 
 Como podemos ver, estão impressos a string “FEUP” e o seu valor em hexadecimal, mais ou menos no centro da imagem.
 
@@ -86,23 +86,23 @@ Nesta task, vamos imprimir uma mensagem secreta armazenada na heap.
 
 O endereço da mesma é fornecido no output do servidor e é este:  
 
-![][image15]
+![image18](images_LOGBOOK6.md/image18.png)
 
 De forma a completar o objetivo, devemos colocar esse endereço na variável number:  
 
-![][image16]
+![image8](images_LOGBOOK6.md/image8.png)
 
 Como já visto na task anterior, existem 63 octetos entre o input e os seus bytes. Logo, concatenamos 63 “%x” à format string para chegar ao endereço da stack imediatamente antes do início do buffer, e os primeiros 4 bytes do buffer contêm como valor hexadecimal o endereço que contém a secret message. Como queremos ver a string armazenada nesse endereço, concatenamos um “%s” no fim:  
 
-![][image17]
+![image14](images_LOGBOOK6.md/image14.png)
 
 Mandamos novamente o ficheiro como input para o server:  
 
-![][image18]
+![image12](images_LOGBOOK6.md/image12.png)
 
 E o server imprimiu isto:  
 
-![][image19]
+![image7](images_LOGBOOK6.md/image7.png)
 
 Através do output do servidor, podemos concluir que a secret message era “A secret message”.
 
@@ -112,19 +112,19 @@ Nesta task, vamos mudar o valor da variável “target”, definida no programa 
 
 Endereço da variável:  
 
-![][image20]
+![image24](images_LOGBOOK6.md/image24.png)
 
 Mudamos a variável number para o endereço da “target”:  
 
-![][image21]
+![image23](images_LOGBOOK6.md/image23.png)
 
 E, como desta vez queremos escrever num endereço e não ler o seu conteúdo, concatenamos “%n” ao invés de “%s”. Este especificador de formato escreve no endereço do argumento passado o número de caracteres escritos até ao próprio. Como o valor é praticamente aleatório, apenas trocamos o “%s” por “%n”:  
 
-![][image22]
+![image25](images_LOGBOOK6.md/image25.png)
 
 Esta foi a resposta do servidor:  
 
-![][image23]  
+![image13](images_LOGBOOK6.md/image13.png)
 
 Como podemos ver, o valor da variável “target” foi alterado.
 
@@ -148,16 +148,16 @@ O \-\> offset
 
 Chegamos, deste modo, à conclusão de que a nova format string que vai ser concatenada ao endereço de “target” é esta:  
 
-![][image24]
+![image9](images_LOGBOOK6.md/image9.png)
 
 Compilámos e enviamos como input para o servidor o novo código:  
 
-![][image25]
+![image5](images_LOGBOOK6.md/image5.png)
 
 E o output do servidor confirmou que o nosso raciocínio estava certo:  
 (...)  
 
-![][image26]  
+![image6](images_LOGBOOK6.md/image6.png)
 
 (o restante é tudo 0000…)  
 O novo valor de “target” é 0x5000, como a tarefa pedia.
