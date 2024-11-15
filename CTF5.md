@@ -88,3 +88,7 @@ E, ao executar o programa, vimos que tivemos sucesso:
 Ao tentarmos atacar o servidor remoto, conseguimos imprimir a “flag-alvo” deste CTF, concluíndo o mesmo:
 
 ![image10](images_CTF5.md/image10.png)
+
+Anexo (código python):
+
+![image18](images_CTF5.md/image18.png)
