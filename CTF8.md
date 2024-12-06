@@ -40,7 +40,7 @@ Neste repositório, está presente um script de Python (exploit.py) que realiza 
 
 Quando clicámos na notificação mencionada acima, fomos redirecionados para esta página:
 
-![image10](images_CTF8.md/image10.png)
+![image4](images_CTF8.md/image4.png)
 
 A partir do conteúdo da mesma, conseguíamos saber que o username do administrador era “admin” (já que o post foi postado por ele), e que a sua “hashed password” começava com “$P$B”, como referido no comentário do “concerned-hacker”.
 
