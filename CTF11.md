@@ -16,8 +16,6 @@ De modo a decifrar o ciphertext e chegar à flag pretendida, vamos realizar um a
 
 De forma a automatizar o processo, ou seja, de forma a evitar que tenhamos que verificar cada output manualmente a ver se faz sentido, apenas precisamos que o programa verifique se a mensagem desencriptada começa por “flag{“ e termina em “}”. Se a mensagem não corresponder, ele faz mais uma iteração. Se corresponder, chegamos ao que pretendíamos.
 
-## 
-
 ## Tarefa 2
 
 Para determinar o valor mínimo do offset para o qual, no pior caso (ou seja, a chave correta é a da última iteração), as máquinas pessoais usadas no ataque não conseguissem decifrar a chave em 10 anos, reutilizamos o script de Python que fizemos e usamos para descobrir a flag, desta vez com o objetivo de medir quantas chaves são avaliadas por segundo, que nos vai indicar, após realização de cálculos, quantas chaves seriam avaliadas em 10 anos. O valor do offset é o inteiro mais pequeno, tal que:
